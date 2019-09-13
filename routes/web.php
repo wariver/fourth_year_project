@@ -1,9 +1,7 @@
 <?php
 
-use App\Events\SendLocation;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Intervention\Image\Facades\Image;
 
 /*
 |--------------------------------------------------------------------------
