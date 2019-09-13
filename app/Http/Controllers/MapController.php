@@ -16,8 +16,9 @@ class MapController extends Controller
      */
     public function index()
     {
-        $maps = Map::where('user_id', Auth::user()->id)->get();
-        return view('map.index', compact('maps'));
+//        $maps = Map::where('user_id', Auth::user()->id)->get();
+//        return view('map.index', compact('maps'));
+        return view('map.outlier');
     }
 
     public function canvas()

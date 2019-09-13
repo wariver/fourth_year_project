@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\SendLocation;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Intervention\Image\Facades\Image;
@@ -30,4 +31,12 @@ Route::get('/trip', 'HomeController@trip')->name('trip');
 
 Route::get('category/media/{icon}', function ($icon) {
     return Image::make(storage_path().'/app/uploads/category/'.$icon)->response();
+});
+
+Route::post('/map', function (Request $request) {
+    $lat = $request->input('lat');
+    $long = $request->input('long');
+    $location = ["lat"=>$lat, "long"=>$long];
+    event(new SendLocation($location));
+    return response()->json(['status'=>'success', 'data'=>$location]);
 });
