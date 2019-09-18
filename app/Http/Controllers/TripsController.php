@@ -7,7 +7,7 @@ use App\Map;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class MapController extends Controller
+class StatsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,6 +16,8 @@ class MapController extends Controller
      */
     public function index()
     {
+//        what are some of the stats we want to pull
+
         $maps = Map::where('user_id', Auth::user()->id)->get();
         return view('map.index', compact('maps'));
 //        return view('map.outlier');
