@@ -26,7 +26,7 @@ class PositionsController extends Controller
     public function index(Request $request)
     {
         $record = $request->all();
-        return DB::table('tx_record')->insert(['contents' => $record]);
+        return DB::table('tx_record')->insert(['contents' => (string)$record]);
     }
 
     public function last_twenty()
