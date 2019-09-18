@@ -55,7 +55,7 @@
                             <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else
                             <li class="nav-item active"><a class="nav-link" href="{{route('device.index')}}">Motorcycles</a></li>
-                            <li class="nav-item active"><a class="nav-link" href="{{route('maps.index')}}">Stats</a></li>
+                            <li class="nav-item active"><a class="nav-link" href="{{route('stats')}}">Stats</a></li>
                             {{--                            <li class="nav-item active"><a class="nav-link" href="http://localhost/trip_example/">Trip</a></li>--}}
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

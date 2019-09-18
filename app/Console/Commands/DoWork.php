@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Position;
 use App\Trip;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
@@ -43,12 +44,15 @@ class DoWork extends Command
         return null;
     }
 
-    public function create_trip(){
+    public function create_trip()
+    {
 
 //        GET LAST TRIP TIME
         $last_trip_time = Trip::max('created_at');
 //        SELECT (FIRST POSITION - 1) AFTER TIME WHERE SPEED IS > 0;
-//      $start_position = Position
+        $start_position = Position::select(['id'])->where('speed', '>', 0)->where('create_at', '>', $last_trip_time)->get();
+
+        dd($start_position);
     }
 
 }

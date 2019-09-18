@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Device;
 use App\Map;
+use App\Trip;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class StatsController extends Controller
+class TripsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,17 +17,9 @@ class StatsController extends Controller
      */
     public function index()
     {
-//        what are some of the stats we want to pull
-
-        $maps = Map::where('user_id', Auth::user()->id)->get();
-        return view('map.index', compact('maps'));
+        $trips = Trip::where('driver_id', Auth::user()->id)->get();
+        return view('trips.index', compact('trips'));
 //        return view('map.outlier');
-    }
-
-    public function canvas()
-    {
-        $maps = Map::where('user_id', Auth::user()->id)->get();
-        return view('map.canvas', compact('maps'));
     }
 
     /**

@@ -21,5 +21,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('cat/{id}', 'HomeController@cat');
 Route::resource('maps', 'MapController')->middleware('auth');
+Route::resource('trips', 'TripsController')->middleware('auth');
 Route::resource('device', 'DevicesController')->middleware('auth');
 Route::get('/trip', 'HomeController@trip')->name('trip');
+Route::get('/stats', 'StatsController@index')->name('stats')->middleware('auth');
