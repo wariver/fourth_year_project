@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use App\Map;
-use App\Category;
 use Illuminate\Http\Request;
 
 class CanvasController extends Controller
@@ -31,7 +30,7 @@ class CanvasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {        
+    {
         $category = Category::all();
         return view('map.create', compact('category'));
     }

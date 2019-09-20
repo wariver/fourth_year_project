@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Device;
 use App\Map;
-use App\Category;
-use Illuminate\Http\Request;
 use FarhanWazir\GoogleMaps\GMaps;
 
 class HomeController extends Controller

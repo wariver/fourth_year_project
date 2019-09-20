@@ -13,7 +13,7 @@
                                 <div class="h4 mb-0 font-weight-light">35 KM / Litre of petrol</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-motorcycle text-gray-300"></i>
+                                <i class="fas fa-motorcycle fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -110,7 +110,7 @@
                                 <div class="h4 mb-0 font-weight-light text-light">44Km in 4 days</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-camera-retro fa-2x text-gray-300"></i>
+                                <i class="fas fa-road fa-2x text-white"></i>
                             </div>
                         </div>
                     </div>
@@ -176,7 +176,7 @@
                                 <div class="h4 mb-0 font-weight-light text-light">Dennis has covered <b>400 Km</b> in the past week.</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-camera-retro fa-2x text-gray-300"></i>
+                                <i class="fas fa-road fa-1x text-white"></i>
                             </div>
                         </div>
                     </div>

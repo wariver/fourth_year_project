@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
 use App\Device;
+use App\Position;
 use Illuminate\Http\Request;
 
 class DevicesController extends Controller
@@ -48,18 +48,19 @@ class DevicesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Category $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Device $device)
     {
         //
+        $device_data = array();
+        $device_data['last_position'] = Position::where('device_id', $device)->max('id');
+        return view('devices.show')->with($device_data);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Category $category
      * @return \Illuminate\Http\Response
      */
     public function edit(Device $device)
@@ -71,7 +72,7 @@ class DevicesController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Category $category
+
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Device $device)
@@ -86,7 +87,7 @@ class DevicesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Category $category
+
      * @return \Illuminate\Http\Response
      */
     public function destroy(Device $device)

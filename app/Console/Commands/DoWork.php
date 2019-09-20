@@ -50,9 +50,25 @@ class DoWork extends Command
 //        GET LAST TRIP TIME
         $last_trip_time = Trip::max('created_at');
 //        SELECT (FIRST POSITION - 1) AFTER TIME WHERE SPEED IS > 0;
-        $start_position = Position::select(['id'])->where('speed', '>', 0)->where('create_at', '>', $last_trip_time)->get();
+        if ($last_trip_time) {
+            $start_position = Position::where('speed', '>', 0)->where('created_at', '>', $last_trip_time)->firstorFail();
+            $end_position = Position::where('id', '>', $start_position->id)->where('speed', 0)->where('created_at', '>', $last_trip_time)->firstorFail();
+        } else {
+            $start_position = Position::where('speed', '>', 0)->firstorFail();
+            $end_position = Position::where('id', '>', $start_position->id)->where('speed', 0)->firstorFail();
+        }
+        $attribute_first = json_decode($start_position->attributes, true);
+        $attribute_end = json_decode($end_position->attributes, true);
+//        dd($attribute_first, $attribute_end);
+        dd($attribute_first['distance'] - $attribute_end['distance']);
+//        insert trip
+        $trip = new Trip();
+        $trip->driver_id = 1;
+        $trip->distance = $attribute_first['distance'] - $attribute_end['distance'];
+        $trip->time_taken = 0;
+        $trip->average_speed = 0;
+        $trip->save();
 
-        dd($start_position);
     }
 
 }
