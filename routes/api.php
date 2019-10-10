@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('positions', 'PositionsController@index');
 Route::get('last20', 'PositionsController@last_twenty');
 Route::post('push_event', 'PositionsController@pushMessage');
+Route::post('transactions', 'TripsController@transactions');

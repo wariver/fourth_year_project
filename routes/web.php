@@ -25,3 +25,4 @@ Route::resource('trips', 'TripsController')->middleware('auth');
 Route::resource('device', 'DevicesController')->middleware('auth');
 Route::get('/trip', 'HomeController@trip')->name('trip');
 Route::get('/stats', 'StatsController@index')->name('stats')->middleware('auth');
+

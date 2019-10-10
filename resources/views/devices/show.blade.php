@@ -26,5 +26,4 @@
 @endsection
 
 @section('header')
-{{--    {!! $map['js'] !!}--}}
 @endsection

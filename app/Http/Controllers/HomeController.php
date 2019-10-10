@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Device;
 use App\Map;
 use FarhanWazir\GoogleMaps\GMaps;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -1081,4 +1083,6 @@ class HomeController extends Controller
         }
         return view('trip')->with($data);
     }
+
+
 }

@@ -7,6 +7,7 @@ use App\Map;
 use App\Trip;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class TripsController extends Controller
 {
@@ -110,5 +111,11 @@ class TripsController extends Controller
         $map->delete();
 
         return redirect()->action('MapController@index');
+    }
+
+    public function transactions(Request $request)
+    {
+        $record = json_encode($request->all());
+        return response()->json(['inserted' => DB::table('tx_record')->insert(['contents' => (string)$record])]);
     }
 }
