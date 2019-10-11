@@ -21,3 +21,4 @@ Route::post('positions', 'PositionsController@index');
 Route::get('last20', 'PositionsController@last_twenty');
 Route::post('push_event', 'PositionsController@pushMessage');
 Route::post('transactions', 'TripsController@transactions');
+Route::post('aysup_order', 'TripsController@aysup_order');

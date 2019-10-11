@@ -8,6 +8,7 @@ use App\Trip;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use tests\Mockery\Generator\ClassWithDebugInfo;
 
 class TripsController extends Controller
 {
@@ -117,5 +118,38 @@ class TripsController extends Controller
     {
         $record = json_encode($request->all());
         return response()->json(['inserted' => DB::table('tx_record')->insert(['contents' => (string)$record])]);
+    }
+
+
+    public function aysup_order(Request $request)
+    {
+        $source_name = $request->get('source_name');
+        $source = $request->get('source');
+        $destination_name = $request->get('destination_name');
+        $destination = $request->get('destination');
+        $estimate = $request->get('estimate');
+        $client_id = $request->get('client_id');
+        $client_phone = $request->get('client_phone');
+        $ride_status = $request->get('ride_status');
+        $pick_up_contact = $request->get('pick_up_contact');
+        $drop_off_contact = $request->get('drop_off_contact');
+
+        $insert = [
+            'client_id' => $client_id,
+            'client_phone' => $client_phone,
+            'price_estimate' => $estimate,
+            'destination_name' => $destination_name,
+            'destination_lat' => $destination['lat'],
+            'destination_long' => $destination['lng'],
+            'source_name' => $source_name,
+            'source_lat' => $source['lat'],
+            'source_long' => $source['lng'],
+            'pick_up_contact' => $pick_up_contact,
+            'drop_off_contact' => $drop_off_contact,
+            'ride_status' => 0,
+        ];
+
+//        if inserted fire SMS.
+        return response()->json(['received' => DB::table('tbl_orders')->insert($insert)]);
     }
 }
